@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fantome Chat</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div id="sidebar">
+
+    <div id="profile">
+
+        <div id="avatar">
+            👻
+        </div>
+
+        <div>
+            <h3>Fantome Chat</h3>
+            <small id="onlineCount">
+                0 en ligne
+            </small>
+        </div>
+
+    </div>
+
+    <div id="createGroup">
+
+        <input
+            id="newGroup"
+            placeholder="Créer un groupe">
+
+        <button onclick="createGroup()">
+            +
+        </button>
+
+    </div>
+
+    <div id="groups"></div>
+
+    <h4>Utilisateurs en ligne</h4>
+
+    <div id="online"></div>
+
+</div>
+
+<!-- CHAT -->
+
+<div id="chatContainer">
+
+    <header>
+
+        <div id="chatHeader">
+
+            <div class="avatarBig">
+                👻
+            </div>
+
+            <div>
+
+                <div id="groupName">
+                    Fantome All
+                </div>
+
+                <small id="typing"></small>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <div id="chat"></div>
+
+    <div id="bar">
+
+        <button
+            class="attachBtn"
+            onclick="document.getElementById('file').click()">
+            📎
+        </button>
+
+        <input
+            id="msg"
+            placeholder="Message">
+
+        <button onclick="send()">
+            ➤
+        </button>
+
+        <button
+            onmousedown="startRecording()"
+            onmouseup="stopRecording()">
+            🎤
+        </button>
+
+        <input
+            type="file"
+            id="file"
+            hidden
+            onchange="sendFile()">
+
+    </div>
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
